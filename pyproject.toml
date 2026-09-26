@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "etemi-prompt-enhancer"
+version = "1.0.0"
+description = "Transform rough prompts into production-ready six-part instructions (Role, Context, Task, Pitfalls, Examples/Format, Clarifying Question) with built-in validation."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Prof. Etemi Joshua Garba", email = "joshua.garba@ethereal.ng"}
+]
+maintainers = [
+    {name = "Prof. Etemi Joshua Garba", email = "joshua.garba@ethereal.ng"}
+]
+keywords = [
+    "prompt-engineering",
+    "claude-code",
+    "ai-skills",
+    "prompt-optimization",
+    "llm-prompts"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = []
+[project.urls]
+Homepage = "https://github.com/etemigarba/etemi-prompt-enhancer"
+Repository = "https://github.com/etemigarba/etemi-prompt-enhancer"
+Issues = "https://github.com/etemigarba/etemi-prompt-enhancer/issues"
+Documentation = "https://github.com/etemigarba/etemi-prompt-enhancer/wiki"
+Changelog = "https://github.com/etemigarba/etemi-prompt-enhancer/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scripts*"]
+
+[tool.setuptools.package-data]
+"*" = ["assets/*", "references/*", "examples/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

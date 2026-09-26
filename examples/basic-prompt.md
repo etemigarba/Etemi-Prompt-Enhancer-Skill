@@ -1,0 +1,1 @@
+Write a prompt for converting a prompt to a Claude Code skill.
