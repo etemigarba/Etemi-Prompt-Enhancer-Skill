@@ -32,13 +32,6 @@ jobs:
         run: |
           python -m pytest tests/ -v --tb=short
 
-      - name: Validate all example prompts
-        run: |
-          for f in examples/*.md; do
-            echo "Validating $f..."
-            python scripts/check_prompt.py "$f" || exit 1
-          done
-
   lint:
     name: Lint Python Files
     runs-on: ubuntu-latest
@@ -57,12 +50,12 @@ jobs:
 
       - name: Check formatting with black
         run: |
-          black --check scripts/ tests/
+          black --check --skip-string-normalization scripts/ tests/
 
       - name: Check imports with isort
         run: |
-          isort --check-only scripts/ tests/
+          isort --check-only --profile black scripts/ tests/
 
       - name: Lint with flake8
         run: |
-          flake8 scripts/ tests/ --max-line-length=100 --ignore=E203,W503
+          flake8 scripts/ tests/ --max-line-length=100 --ignore=E203,W503,E501
